@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Podcasto</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>Podcasto</h1>
+        <p>YouTube oynatma listelerini özetleyip podcast bültenine dönüştür.</p>
+      </header>
+
+      <section class="card">
+        <label for="playlist">YouTube Playlist URL</label>
+        <input id="playlist" type="url" placeholder="https://www.youtube.com/playlist?list=..." />
+
+        <label for="compress">
+          Sıkıştırma oranı: <span id="compress-value">%30</span>
+        </label>
+        <input id="compress" type="range" min="10" max="90" step="5" value="30" />
+
+        <button id="run">Özetle</button>
+        <div id="status" class="status"></div>
+      </section>
+
+      <section class="results">
+        <h2>Çıktılar</h2>
+        <div class="result-block">
+          <h3>Özet Dosyaları</h3>
+          <ul id="summary-list"></ul>
+        </div>
+        <div class="result-block">
+          <h3>Podcast Metni</h3>
+          <pre id="podcast-script"></pre>
+        </div>
+        <div class="result-block">
+          <h3>Ses Dosyası</h3>
+          <audio id="audio" controls></audio>
+        </div>
+      </section>
+    </main>
+    <script src="/static/app.js"></script>
+  </body>
+</html>
