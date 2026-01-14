@@ -1,7 +1,8 @@
 from __future__ import annotations
 
 import os
-
+from dotenv import load_dotenv
+load_dotenv()
 import google.generativeai as genai
 
 

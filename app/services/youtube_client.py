@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from pytube import Playlist, YouTube
+from pytubefix import Playlist, YouTube
 from youtube_transcript_api import YouTubeTranscriptApi
 
 
