@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Podcasto · Playlistten Günlük Özet</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Podcasto</p>
+          <h1>Youtube oynatma listesinden günlük özet podcast</h1>
+          <p class="subhead">
+            Playlist URL'sini ekle, özet oranını seç ve Gemini + TTS hattı ile günlük
+            bülteni oluştur.
+          </p>
+        </div>
+        <div class="status-card">
+          <h2>İş akışı</h2>
+          <ol>
+            <li>Playlist videoları çekilir.</li>
+            <li>Her video %30 civarı sıkıştırılarak özetlenir.</li>
+            <li>Özetler bir bülten metnine bağlanır.</li>
+            <li>TTS ile seslendirilip podcast dosyası oluşturulur.</li>
+          </ol>
+        </div>
+      </header>
+
+      <section class="panel">
+        <form id="playlist-form">
+          <label class="field">
+            <span>Youtube playlist URL</span>
+            <input
+              type="url"
+              name="playlist_url"
+              placeholder="https://www.youtube.com/playlist?list=..."
+              required
+            />
+          </label>
+
+          <label class="field">
+            <span>Özet sıkıştırma oranı: <strong id="ratio-value">%30</strong></span>
+            <input
+              id="ratio"
+              type="range"
+              min="10"
+              max="60"
+              step="5"
+              value="30"
+            />
+          </label>
+
+          <button type="submit">Run</button>
+        </form>
+
+        <div class="results" aria-live="polite">
+          <div class="result-block">
+            <h3>Çıktılar</h3>
+            <p id="summary-count">Henüz özetlenmedi.</p>
+            <p id="script-path"></p>
+            <p id="audio-path"></p>
+          </div>
+          <div class="result-block hint">
+            <h3>Notlar</h3>
+            <ul>
+              <li>Özetler <code>outputs/summaries</code> klasörüne TXT olarak kaydedilir.</li>
+              <li>Podcast metni <code>outputs/podcasts</code> içinde bulunur.</li>
+              <li>TTS çıktısı hazır olduğunda <code>outputs/audio</code> içine yazılır.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
